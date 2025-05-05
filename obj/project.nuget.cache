@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Vz21iLpq0Dw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daniel Briones\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "C:\\Users\\Daniel Briones\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
