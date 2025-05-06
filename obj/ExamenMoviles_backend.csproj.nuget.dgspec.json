@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj": {}
+    "C:\\Users\\josue\\Downloads\\Examen-Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj": {
+    "C:\\Users\\josue\\Downloads\\Examen-Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj",
+        "projectUniqueName": "C:\\Users\\josue\\Downloads\\Examen-Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj",
         "projectName": "ExamenMoviles_backend",
-        "projectPath": "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj",
-        "packagesPath": "C:\\Users\\Daniel Briones\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel Briones\\Desktop\\Moviles\\ExamenMoviles_Backend\\ExamenMoviles_backend\\obj\\",
+        "projectPath": "C:\\Users\\josue\\Downloads\\Examen-Backend\\ExamenMoviles_backend\\ExamenMoviles_backend.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\Downloads\\Examen-Backend\\ExamenMoviles_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Daniel Briones\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -47,6 +47,26 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.1.1, )"
             }
           },
           "imports": [
@@ -68,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
