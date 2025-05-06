@@ -50,7 +50,7 @@ namespace ExamenMoviles_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
+                    b.ToTable("Courses");
                 });
 #pragma warning restore 612, 618
         }

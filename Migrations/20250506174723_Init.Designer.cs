@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExamenMoviles_backend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250506172651_Init")]
+    [Migration("20250506174723_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -53,7 +53,7 @@ namespace ExamenMoviles_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
+                    b.ToTable("Courses");
                 });
 #pragma warning restore 612, 618
         }
