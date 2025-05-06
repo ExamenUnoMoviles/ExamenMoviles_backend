@@ -1,8 +1,6 @@
-
-
-namespace ExamenMoviles_backend.Models
+namespace ExamenMoviles_backend.Dtos.Course
 {
-  public class Course
+  public class CoursetDto
   {
     public int Id { get; set; }
     public string Name { get; set; }
