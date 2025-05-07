@@ -9,12 +9,23 @@ namespace ExamenMoviles_backend.Mappers
     {
       return new CoursetDto
       {
-        Id = courseItem.Id,
-        Name = courseItem.Name,
-        Description = courseItem.Description,
+        id = courseItem.Id,
+        name = courseItem.Name,
+        description = courseItem.Description,
         imageUrl = courseItem.imageUrl,
-        Schedule = courseItem.Schedule,
-        Professor = courseItem.Professor
+        schedule = courseItem.Schedule,
+        professor = courseItem.Professor
+      };
+    }
+
+     public static Course ToCourseFromCreateDto(this CreateCourseRequestDto createUserRequest)
+    {
+      return new Course
+      {
+        Name = createUserRequest.name,
+        Description = createUserRequest.description,
+        Schedule = createUserRequest.schedule,
+        Professor = createUserRequest.professor
       };
     }
 
