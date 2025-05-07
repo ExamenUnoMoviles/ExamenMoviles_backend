@@ -1,0 +1,42 @@
+using ExamenMoviles_backend.Data;
+using ExamenMoviles_backend.Dtos.Student;
+using Microsoft.AspNetCore.Mvc;
+using ExamenMoviles_backend.Mappers;
+using Microsoft.EntityFrameworkCore;
+
+namespace ExamenMoviles_backend.Controllers
+{
+  [Route("api/student")]
+  [ApiController]
+  public class StudentController : ControllerBase
+  {
+    private readonly ApplicationDBContext _context;
+    public StudentController(ApplicationDBContext context)
+    {
+      _context = context;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromForm] CreateStudentRequestDto studentDto){
+        var studenModel = studentDto.ToStudentFromCreateDto();
+
+        
+
+
+        await _context.Student.AddAsync(studenModel);
+        await _context.SaveChangesAsync();
+
+        return Ok(studenModel.ToDto());
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+      var students = await _context.Student.ToListAsync();
+      var studentDto = students.Select(s => s.ToDto());
+      return Ok(studentDto);
+    }
+
+  }
+}
