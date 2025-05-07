@@ -101,15 +101,22 @@ namespace ExamenMoviles_backend.Controllers
       courseModel.Professor = courseDto.professor;
 
        if (courseDto.File != null && courseDto.File.Length > 0){
-     var fileName = courseModel.Id.ToString() + Path.GetExtension(courseDto.File.FileName);
-      var filePath = Path.Combine(_imagePath, fileName);
+    
+    var fileName = courseModel.Id.ToString() + Path.GetExtension(courseDto.File.FileName);
+    var filePath = Path.Combine(_imagePath, fileName);
 
-      using (var stream = new FileStream(filePath, FileMode.Create))
-      {
+    if (System.IO.File.Exists(filePath))
+    {
+        System.IO.File.Delete(filePath);
+    }
+
+    // Guardar la nueva imagen
+    using (var stream = new FileStream(filePath, FileMode.Create))
+    {
         await courseDto.File.CopyToAsync(stream);
-      }
+    }
 
-      courseModel.imageUrl = fileName;
+    courseModel.imageUrl = fileName;
        }
 
       await _context.SaveChangesAsync();
