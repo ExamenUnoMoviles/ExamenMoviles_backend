@@ -20,8 +20,9 @@ namespace ExamenMoviles_backend.Controllers
     public async Task<IActionResult> Create([FromForm] CreateStudentRequestDto studentDto){
         var studenModel = studentDto.ToStudentFromCreateDto();
 
-        
-
+        // Check if the course exists
+        var courseModel = await _context.Courses.FirstOrDefaultAsync(_course => _course.Id == studenModel.CourseId);
+        if(courseModel == null) return NotFound("Curso no encontrado.");
 
         await _context.Student.AddAsync(studenModel);
         await _context.SaveChangesAsync();
