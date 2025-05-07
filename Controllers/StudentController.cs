@@ -17,17 +17,18 @@ namespace ExamenMoviles_backend.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromForm] CreateStudentRequestDto studentDto){
-        var studenModel = studentDto.ToStudentFromCreateDto();
+    public async Task<IActionResult> Create([FromForm] CreateStudentRequestDto studentDto)
+    {
+      var studenModel = studentDto.ToStudentFromCreateDto();
 
-        // Check if the course exists
-        var courseModel = await _context.Courses.FirstOrDefaultAsync(_course => _course.Id == studenModel.CourseId);
-        if(courseModel == null) return NotFound("Curso no encontrado.");
+      // Check if the course exists
+      var courseModel = await _context.Courses.FirstOrDefaultAsync(_course => _course.Id == studenModel.CourseId);
+      if (courseModel == null) return NotFound("Curso no encontrado.");
 
-        await _context.Student.AddAsync(studenModel);
-        await _context.SaveChangesAsync();
+      await _context.Student.AddAsync(studenModel);
+      await _context.SaveChangesAsync();
 
-        return Ok(studenModel.ToDto());
+      return Ok(studenModel.ToDto());
     }
 
 
@@ -39,5 +40,17 @@ namespace ExamenMoviles_backend.Controllers
       return Ok(studentDto);
     }
 
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] int id)
+    {
+      var studentModel = await _context.Student.FirstOrDefaultAsync(_student => _student.Id == id);
+      if (studentModel == null) return NotFound("Estudiante no encontrado.");
+
+      _context.Student.Remove(studentModel);
+      await _context.SaveChangesAsync();
+
+      return NoContent();
+    }
   }
 }
