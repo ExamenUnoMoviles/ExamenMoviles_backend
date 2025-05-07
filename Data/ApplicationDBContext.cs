@@ -12,5 +12,6 @@ namespace ExamenMoviles_backend.Data
     public ApplicationDBContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Student> Student { get; set; }
   }
 }
