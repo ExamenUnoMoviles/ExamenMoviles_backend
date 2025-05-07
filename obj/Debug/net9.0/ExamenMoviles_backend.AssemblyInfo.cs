@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExamenMoviles_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c09a4eb84088b9234fc0aa007064c2f1c20c9804")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5baf74c594d53c6c2ac104f2b5f4c21761e17814")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExamenMoviles_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExamenMoviles_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
