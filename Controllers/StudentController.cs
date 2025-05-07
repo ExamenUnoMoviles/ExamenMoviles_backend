@@ -52,5 +52,23 @@ namespace ExamenMoviles_backend.Controllers
 
       return NoContent();
     }
+
+    [HttpPut]
+    [Route("{id}")]
+    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStudentRequestDto studentDto)
+    {
+      var studenModel = await _context.Student.FirstOrDefaultAsync(_student => _student.Id == id);
+      if (studenModel == null) return NotFound();
+
+      studenModel.Name = studentDto.Name;
+      studenModel.Email = studentDto.Email;
+      studenModel.Phone = studentDto.Phone;
+      studenModel.CourseId = studentDto.CourseId;
+
+      await _context.SaveChangesAsync();
+
+      
+      return Ok(studenModel.ToDto());
+    }
   }
 }
