@@ -17,7 +17,7 @@ namespace ExamenMoviles_backend.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromForm] CreateStudentRequestDto studentDto)
+    public async Task<IActionResult> Create([FromBody] CreateStudentRequestDto studentDto)
     {
       var studenModel = studentDto.ToStudentFromCreateDto();
 
@@ -32,11 +32,15 @@ namespace ExamenMoviles_backend.Controllers
     }
 
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetAll([FromRoute] int id)
     {
-      var students = await _context.Student.ToListAsync();
+      var students = await _context.Student
+        .Where(s => s.CourseId == id)
+        .ToListAsync();
+
       var studentDto = students.Select(s => s.ToDto());
+
       return Ok(studentDto);
     }
 
@@ -67,8 +71,20 @@ namespace ExamenMoviles_backend.Controllers
 
       await _context.SaveChangesAsync();
 
-      
+
       return Ok(studenModel.ToDto());
+    }
+
+    [HttpGet("unique/{id}")]
+    public async Task<IActionResult> GetById([FromRoute] int id)
+    {
+      var student = await _context.Student
+    .FirstOrDefaultAsync(s => s.Id == id);
+
+      if (student == null) return NotFound();
+
+      var studentDto = student.ToDto();
+      return Ok(studentDto);
     }
   }
 }

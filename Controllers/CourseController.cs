@@ -25,7 +25,7 @@ namespace ExamenMoviles_backend.Controllers
     public async Task<IActionResult> GetAll()
     {
       var courses = await _context.Courses.ToListAsync();
-      Console.WriteLine("JSON enviado al curso: "+courses );
+      Console.WriteLine("JSON enviado al curso: " + courses);
       var coursesDto = courses.Select(c => c.ToDto());
       return Ok(coursesDto);
     }
@@ -56,7 +56,7 @@ namespace ExamenMoviles_backend.Controllers
     }
 
 
-[HttpGet("{id}")]
+    [HttpGet("{id}")]
     public async Task<IActionResult> getById([FromRoute] int id)
     {
       var _course = await _context.Courses.FirstOrDefaultAsync(u => u.Id == id);
@@ -84,12 +84,12 @@ namespace ExamenMoviles_backend.Controllers
     }
 
 
-    
+
     [HttpPut]
     [Route("{id}")]
     public async Task<IActionResult> Update([FromRoute] int id, [FromForm] UpdateCourseRequestDto courseDto)
     {
-       Console.WriteLine("Mensaje llegueee");
+      Console.WriteLine("Mensaje llegueee");
       var courseModel = await _context.Courses.FirstOrDefaultAsync(_course => _course.Id == id);
       if (courseModel == null)
       {
@@ -100,30 +100,31 @@ namespace ExamenMoviles_backend.Controllers
       courseModel.Schedule = courseDto.schedule;
       courseModel.Professor = courseDto.professor;
 
-       if (courseDto.File != null && courseDto.File.Length > 0){
-    
-    var fileName = courseModel.Id.ToString() + Path.GetExtension(courseDto.File.FileName);
-    var filePath = Path.Combine(_imagePath, fileName);
+      if (courseDto.File != null && courseDto.File.Length > 0)
+      {
 
-    if (System.IO.File.Exists(filePath))
-    {
-        System.IO.File.Delete(filePath);
-    }
+        var fileName = courseModel.Id.ToString() + Path.GetExtension(courseDto.File.FileName);
+        var filePath = Path.Combine(_imagePath, fileName);
 
-    // Guardar la nueva imagen
-    using (var stream = new FileStream(filePath, FileMode.Create))
-    {
-        await courseDto.File.CopyToAsync(stream);
-    }
+        if (System.IO.File.Exists(filePath))
+        {
+          System.IO.File.Delete(filePath);
+        }
 
-    courseModel.imageUrl = fileName;
-       }
+        // Guardar la nueva imagen
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+          await courseDto.File.CopyToAsync(stream);
+        }
+
+        courseModel.imageUrl = fileName;
+      }
 
       await _context.SaveChangesAsync();
-       Console.WriteLine("Mensaje llegueee");
+      Console.WriteLine("Mensaje llegueee");
 
-       // Send notification to all users subscribed to "event_notifications" topic
-      
+      // Send notification to all users subscribed to "event_notifications" topic
+
 
       return Ok(courseModel.ToDto());
     }
