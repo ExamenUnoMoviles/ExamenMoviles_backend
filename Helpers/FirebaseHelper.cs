@@ -30,7 +30,7 @@ public static class FirebaseHelper
     var json = JsonSerializer.Serialize(message);
 
     var response = await client.PostAsync(
-        "https://fcm.googleapis.com/v1/projects/event-finder-784bd/messages:send",
+        "https://fcm.googleapis.com/v1/projects/examen-moviles-56119/messages:send",
         new StringContent(json, Encoding.UTF8, "application/json")
     );
 

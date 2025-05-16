@@ -27,7 +27,11 @@ namespace ExamenMoviles_backend.Controllers
 
       await _context.Student.AddAsync(studenModel);
       await _context.SaveChangesAsync();
-
+     await FirebaseHelper.SendPushNotificationToTopicAsync(
+          topic: "Examen_Moviles",
+          title: "Estudiante Creado!",
+          body: $"El estudiante \"{studenModel.Name}\" se ha creado correctamente!"
+      );
       return Ok(studenModel.ToDto());
     }
 
