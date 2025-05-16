@@ -23,6 +23,7 @@ Una vez clonado el repositorio cambiar el **DefaultConnection** de **appsettings
 ```bash
 "DefaultConnection": "Server=localhost,1433;Database=Examen_Moviles;User Id=<NOMBRE DE USUARIO>;Password=<CONTRASEÑA>;TrustServerCertificate=True;"
 ```
+> [!NOTE]
 >Cambiar **NOMBRE DE USUARIO** con su usuario de SQLServer y **CONTRASEÑA** con su contraseña de SQLServer.
 
 ## Migraciones
@@ -31,6 +32,7 @@ Una vez configurada la conexión a la base de datos crear las migraciones con lo
     dotnet ef migrations add <NOMBRE DE LA MIGRACIÓN>
     dotnet ef database update
 ```
+> [!NOTE]
 >Cambiar **NOMBRE DE LA MIGRACIÓN** por algún nombre descriptivo ejemplo: **InitExam**
 
 ## Uso
